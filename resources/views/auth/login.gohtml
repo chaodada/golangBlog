@@ -1,0 +1,86 @@
+{{define "title"}}
+  登录
+{{end}}
+
+{{define "main"}}
+  <div class="blog-post bg-white p-5 rounded ">
+
+    <h3 class="mb-5 text-center">用户登录</h3>
+
+    <form action="{{ RouteName2URL "auth.dologin" }}" method="post" autocomplete="off">
+
+
+      {{/*    <form class="form-signin">*/}}
+      {{/*      <div class="text-center mb-4">*/}}
+      {{/*        <img class="mb-4" src="bootstrap-solid.svg" alt="" width="72" height="72">*/}}
+      {{/*        <h1 class="h3 mb-3 font-weight-normal">Floating labels</h1>*/}}
+      {{/*        <p>Build form controls with floating labels via the <code>:placeholder-shown</code> pseudo-element. <a href="https://caniuse.com/#feat=css-placeholder-shown">Works in latest Chrome, Safari, and Firefox.</a></p>*/}}
+      {{/*      </div>*/}}
+      <div class="form-label-group mb-3 mt-4">
+        <input id="email" type="email" class="form-control {{if .Error }}is-invalid {{end}}" name="email"
+               value="{{ .Email }}" required="" placeholder="用户邮箱" autocomplete="new-password">
+        {{/*        <label for="inputEmail">Email address</label>*/}}
+      </div>
+
+      <div class="form-label-group mb-3 mt-4">
+        <input id="password" type="password" class="form-control {{if .Errors.password }}is-invalid {{end}}"
+               name="password" value="{{ .Password }}" required="" placeholder="登陆密码" autocomplete="new-password">
+        {{/*        <label for="inputPassword">Password</label>*/}}
+      </div>
+
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+
+      <div class="form-group mb-3 mb-0 mt-4">
+        <button class="btn btn-block btn-outline-success" type="submit">登陆</button>
+      </div>
+
+      {{/*      <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>*/}}
+
+
+
+      {{/*<div class="text-center">*/}}
+      {{/*  <div class="form-group row mb-3 mb-0 mt-4">*/}}
+      {{/*    */}}{{/*      <label for="email" class="col-md-4 col-form-label text-md-right">邮箱</label>*/}}
+      {{/*    <div class="col-md-6 offset-md-4">*/}}
+      {{/*      <input id="email" type="email" class="form-control {{if .Error }}is-invalid {{end}}" name="email" value="{{ .Email }}" required="">*/}}
+      {{/*      {{ with .Error }}*/}}
+      {{/*        <div class="invalid-feedback">*/}}
+      {{/*          <p>{{ . }}</p>*/}}
+      {{/*        </div>*/}}
+      {{/*      {{ end }}*/}}
+      {{/*    </div>*/}}
+      {{/*  </div>*/}}
+      {{/*</div>*/}}
+
+
+
+
+      {{/*    <div class="form-group row mb-3 mb-0 mt-4">*/}}
+      {{/*      <label for="password" class="col-md-4 col-form-label text-md-right">密码</label>*/}}
+      {{/*      <div class="col-md-6 offset-md-4">*/}}
+      {{/*        <input id="password" type="password" class="form-control {{if .Errors.password }}is-invalid {{end}}" name="password" value="{{ .Password }}" required="">*/}}
+      {{/*      </div>*/}}
+      {{/*    </div>*/}}
+
+      {{/*    <div class="form-group row mb-3 mb-0 mt-4">*/}}
+      {{/*      <div class="col-md-6 offset-md-4">*/}}
+      {{/*        <button type="submit" class="btn btn-block btn-outline-success">登录</button>*/}}
+      {{/*      </div>*/}}
+      {{/*    </div>*/}}
+
+    </form>
+    <div class="mb-3">
+      <a href="/" style="text-decoration: none" class="text-sm text-muted"><small>返回首页</small></a>
+      <a href="#" style="text-decoration: none" class="text-sm text-muted float-right"><small>找回密码</small></a>
+    </div>
+
+  </div>
+
+
+
+
+{{end}}

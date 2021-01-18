@@ -1,0 +1,110 @@
+{{define "sidebar"}}
+  <div class="col-md-3 blog-sidebar ">
+
+
+    <div class="p-4 mb-3 bg-white rounded text-center">
+      <section class="mb-3">
+        <img class="img-thumbnail rounded-circle mx-auto d-block mb-3"
+             src="https://i.niupic.com/images/2020/06/05/8duX.jpg" alt="avatar" width="75">
+        <h4>建超</h4>
+      </section>
+
+      <div class=" mt-2 mb-4">
+        <p class="mb-0">唯愿无事常相见</p>
+      </div>
+      <hr>
+      <section class=" mt-2 mb-4 sys-user-info">
+        <style>
+          .sys-user-info {
+            overflow: auto;
+            margin-top: 0;
+            padding: 0;
+          }
+
+          .sys-user-info a {
+            float: left;
+            padding: 0 10px;
+            text-align: center;
+            width: 33.3%;
+            border-left: 1px solid #eee;
+            color: #33383c;
+          }
+
+          .sys-user-info > a:nth-child(2) {
+            padding-left: 0;
+            border: 0;
+          }
+
+          .sys-user-info a:hover {
+            text-decoration: none;
+            color: #337ab7;
+          }
+
+          .sys-user-info strong {
+            display: block;
+            font-size: 1.2em;
+            color: black;
+          }
+        </style>
+        <a style="text-decoration: none" href="#">
+          <strong id="following" class="stat">
+            100
+          </strong>
+          QQ
+        </a>
+        <a style="text-decoration: none" href="#">
+          <strong id="followers" class="stat">
+            200
+          </strong>
+          微信
+        </a>
+        <a style="text-decoration: none" href="#">
+          <strong id="statuses" class="stat">
+            300
+          </strong>
+          微博
+        </a>
+      </section>
+
+      <ul class=" text-center list-group list-group-flush">
+        <li class="list-group-item">
+          <a style="text-decoration: none" href="{{ RouteName2URL "home" }}">主页</a>
+        </li>
+        {{ range $key, $category := .Categories }}
+          <li class="list-group-item">
+            <a style="text-decoration: none" href="{{ $category.Link }}">{{ $category.Name }}</a>
+          </li>
+        {{ end }}
+        {{ if .isLogined }}
+          <li class="list-group-item">
+            <a style="text-decoration: none" href="{{ RouteName2URL "categories.create" }}">+ 新建分类</a>
+          </li>
+        {{ end }}
+      </ul>
+
+    </div>
+
+
+
+    <div class="p-4 bg-white rounded mb-3">
+      {{ if .isLogined }}
+        <ol class="list-unstyled">
+          <li class="mt-3">
+            <a class="btn btn-block btn-outline-success btn-sm" href="{{ RouteName2URL "articles.create" }}">开始写作</a>
+          </li>
+          <li class="mt-3">
+            <a class="btn btn-block btn-outline-primary btn-sm" href="{{ RouteName2URL "about" }}">关于我</a>
+          </li>
+          <li class="mt-3">
+            <form action="{{ RouteName2URL "auth.logout" }}" method="POST" onsubmit="return confirm('您确定要退出吗？');">
+              <button class="btn btn-block btn-outline-danger btn-sm" type="submit" name="button">退出</button>
+            </form>
+          </li>
+        </ol>
+      {{ else }}
+        <a href="{{ RouteName2URL "auth.register" }}" class="btn btn-block btn-outline-primary">注册</a>
+        <a href="{{ RouteName2URL "auth.login" }}" class="btn btn-block btn-outline-success">登录</a>
+      {{ end }}
+    </div>
+  </div>
+{{end}}

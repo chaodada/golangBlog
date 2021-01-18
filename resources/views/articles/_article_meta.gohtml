@@ -1,0 +1,8 @@
+{{define "article-meta"}}
+  <p class="blog-post-meta text-secondary text-sm text-muted">
+    <small> 发布时间: <a href="{{ .Link }}">{{ .CreatedAtDate }}</a>
+      作者: <a href="{{ .User.Link }}">{{ .User.Name }}</a>
+      所属分类: <a href="{{ .Category.Link }}">{{ .Category.Name }}</a>
+    </small>
+  </p>
+{{ end }}

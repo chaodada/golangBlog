@@ -1,0 +1,44 @@
+{{define "title"}}
+  所有文章 —— 我的技术博客
+{{end}}
+
+{{define "main"}}
+  <div class="col-md-9 blog-main">
+    {{if .Articles }}
+      {{ range $key, $article := .Articles }}
+        <div class="blog-post bg-white p-5 rounded  mb-4">
+          <h3 class="blog-post-title">
+            <a href="{{ $article.Link }}" class="text-dark text-decoration-none">{{ $article.Title }}</a>
+          </h3>
+          {{template "article-meta" $article }}
+          <hr>
+
+
+            <svg class="img-fluid" style="font-size: 3.5rem;text-anchor: middle;vertical-align: middle;overflow:hidden;" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Responsive image">
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#868e96"></rect>
+              <text x="50%" y="50%" fill="#dee2e6" dy=".3em">图片堵车啦......</text>
+            </svg>
+
+
+{{/*          <img src="https://period.competethemes.com/wp-content/uploads/sites/49/2015/02/matterhorn.jpeg" style="height: 250px;width: 100%;" class="img-fluid" alt="Responsive image">*/}}
+
+
+          {{/*          <div class="html-content">{{ $article.Body| unescaped }}</div>*/}}
+
+{{/*          <div class="markdown-content">{{ $article.Body }}</div>*/}}
+
+{{/*          <textarea class="markdown-content" style="display: none;">{{ $article.Body }}</textarea>*/}}
+
+
+        </div>
+      {{ end }}
+      {{template "pagination" .PagerData }}
+    {{else}}
+      <div style="background-color: #ffffff;" class="jumbotron text-center">
+        <h4 class="display-4">(≧∀≦)</h4>
+        <p class="lead mt-5">该分类暂时没有有内容,请过段时间再来吧</p>
+      </div>
+    {{ end }}
+  </div>
+{{end}}

@@ -1,0 +1,27 @@
+{{define "simple"}}
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{template "title" .}}</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
+  </head>
+  <body>
+  <div class="container-sm">
+    <div class="row">
+      <div class="col-md-8 offset-md-2 blog-main mt-5">
+        {{template "main" .}}
+      </div>
+    </div>
+    <p class="mt-5 text-muted text-center"> © 2020 Proudly powered by <a href="https://golang.org/" target="_blank">Golang</a>
+      and <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a></p>
+  </div>
+  <script src="/js/jquery-3.5.1.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  </body>
+  </html>
+{{end}}

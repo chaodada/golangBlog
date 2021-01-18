@@ -1,0 +1,42 @@
+{{define "messages"}}
+  {{ if .flash.danger }}
+    <div class="flash-message">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{ .flash.danger }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  {{ end }}
+  {{ if .flash.warning }}
+    <div class="flash-message">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{ .flash.warning }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  {{ end }}
+  {{ if .flash.success }}
+    <div class="flash-message">
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ .flash.success }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  {{ end }}
+  {{ if .flash.info }}
+    <div class="flash-message">
+      <div class="alert alert-info alert-dismissible fade show" role="alert">
+        {{ .flash.info }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  {{ end }}
+{{end}}
